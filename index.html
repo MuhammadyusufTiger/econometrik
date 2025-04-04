@@ -22,6 +22,12 @@
 </head>
 
 <body id="top" data-spy="scroll" data-target=".navbar-collapse" data-offset="50">
+     <script>
+          history.pushState(null, null, "/");
+          window.addEventListener("popstate", function (event) {
+            history.pushState(null, null, "/");
+          });
+     </script>
 
      <!-- PRE LOADER -->
      <!-- <section class="preloader">

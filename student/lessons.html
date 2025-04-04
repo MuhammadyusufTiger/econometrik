@@ -33,6 +33,12 @@
 </head>
 
 <body>
+    <script>
+        history.pushState(null, null, "/");
+        window.addEventListener("popstate", function (event) {
+          history.pushState(null, null, "/");
+        });
+    </script>
     <div class="container-fluid position-relative bg-white d-flex p-0">
         <!-- Spinner Start -->
         <div id="spinner"
