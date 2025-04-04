@@ -1,314 +1,359 @@
 const testdata = [
   {
     id: 1,
-    question: "Yarim additiv funksional qanday aniqlanadi?",
+    question: "Ekonometrika fanining asosiy maqsadi nima?",
     options: [
-      "Faqat ko‘paytirish qoidalarini qanoatlantiradigan funksional", 
-      "Additivlikning faqat qisman bajarilishini talab qiladigan funksional", 
-      "Har doim chiziqli bo‘lgan funksional", 
-      "Har qanday funksiyalarni chiziqli bog‘lovchi operator"
+      "Iqtisodiy jarayonlarni matematik modellashtirish",
+      "Moliyaviy hisobotlarni tekshirish", 
+      "Statistika nazariyalarini o‘rganish", 
+      "Buxgalteriya hisobini yuritish",
     ],
-    answer: "Additivlikning faqat qisman bajarilishini talab qiladigan funksional"
+    answer: "Iqtisodiy jarayonlarni matematik modellashtirish"
   },
   {
     id: 2,
-    question: "Yarim additiv funksionalning asosiy xususiyatlaridan biri nima?",
+    question: "Iqtisodiy o‘zgaruvchilar orasidagi bog‘liqlikni aniqlash uchun qaysi usul qo‘llaniladi?",
     options: [
-      "Har qanday qiymatda simmetrik bo‘lishi",
-      "O‘zgarmas nol nuqtaga ega bo‘lishi",
-      "Qisman additivlik shartini bajarishi",
-      "Vektorlar yig‘indisi bilan mutlaq bir xil bo‘lishi",
+      "Deskriptiv statistika",
+      "Ehtimollar nazariyasi",
+      "Regressiya tahlili",
+      "Hisob-kitob amallari",
     ],
-    answer: "Qisman additivlik shartini bajarishi",
+    answer: "Regressiya tahlili",
   },
   {
     id: 3,
-    question: "Quyidagi qaysi ifoda yarim additiv funksionallarga mos keladi?",
+    question: "Ekonometrik modelning tarkibiy qismlaridan biri bu:",
     options: [
-      "f(x+y)=f(x)+f(y)f(x + y) = f(x) + f(y) har doim to‘g‘ri bo‘ladi", 
-      "f(x+y)≤f(x)+f(y)f(x + y) \leq f(x) + f(y)", 
-      "f(ax)=af(x)f(ax) = af(x) faqat musbat aa lar uchun", 
-      "f(x−y)=f(x)−f(y)f(x - y) = f(x) - f(y)"
+      "Differensial tenglama", 
+      "Statik analiz", 
+      "Tasodifiy xatolik", 
+      "Barcha javoblar to‘g‘ri"
     ],
-    answer: "f(x+y)≤f(x)+f(y)f(x + y) \leq f(x) + f(y)",
+    answer: "Tasodifiy xatolik",
   },
   {
     id: 4,
     question:
-      "Yarim additiv funksionallar qaysi sohalarda keng qo‘llaniladi?",
+      "Agar ikkita o‘zgaruvchi orasida kuchli chiziqli bog‘liqlik mavjud bo‘lsa, bu hodisa qanday ataladi?",
     options: [
-      "Fazoviy fizika va geometriya", 
-      "Chiziqli algebra va funksional analiz", 
-      "Faqat sonli hisoblash sohalarida", 
-      "Matematika va kimyo"
+      "Geteroskedastiklik", 
+      "Avtokorrelyatsiya", 
+      "Multikollinearlik", 
+      "Endogenlik"
     ],
-    answer: "Chiziqli algebra va funksional analiz",
+    answer: "Multikollinearlik",
   },
   {
     id: 5,
     question:
-      "Yarim additiv funksional uchun asosiy cheklov sharti nima?",
+      "Regressiya tahlilida R² statistikasi nima uchun ishlatiladi?",
     options: [
-      "Funksiyaning har doim chiziqli bo‘lishi",
-      "Funksiyaning chegarasi faqat musbat qiymatlarda bo‘lishi",
-      "Funksiyaning additivlikni qisman bajarishi",
-      "Funksiyaning nolga teng bo‘lmasligi",
+      "O‘zgaruvchilar orasidagi bog‘liqlikni o‘lchash uchun",
+      "Modeldagi tasodifiy xatolikni hisoblash uchun",
+      "Heteroskedastiklikni tekshirish uchun",
+      "Endogenlikni bartaraf etish uchun",
     ],
-    answer: "Funksiyaning additivlikni qisman bajarishi",
+    answer: "O‘zgaruvchilar orasidagi bog‘liqlikni o‘lchash uchun",
   },
   {
     id: 6,
     question:
-      "Yarim additiv funksionallar uchun qaysi tenglik har doim bajariladi?",
+      "OLS (Eng kichik kvadratlar usuli) qanday asosiy shartlarga tayanadi?",
     options: [
-      "f(0)=0f(0) = 0",
-      "f(x+x)=2f(x)f(x + x) = 2f(x)",
-      "f(x)≥0f(x) \geq 0 barcha xx uchun",
-      "f(x⋅y)=f(x)⋅f(y)f(x \cdot y) = f(x) \cdot f(y)",
+      "Tasodifiy xatoliklarning normal taqsimlanishi",
+      "Tasodifiy xatoliklarning o‘rtacha qiymati nolga teng bo‘lishi",
+      "Tasodifiy xatoliklarning o‘zaro bog‘liq emasligi",
+      "Barcha javoblar to‘g‘ri",
     ],
-    answer: "f(0)=0f(0) = 0",
+    answer: "Barcha javoblar to‘g‘ri",
   },
   {
     id: 7,
     question:
-      "Quyidagi qaysi funksiyalar yarim additiv funksionallar bo‘lishi mumkin?",
+      "Geteroskedastiklik nimani anglatadi?",
     options: [
-      "To‘g‘ri chiziqli operatorlar",
-      "Kvadrat ildiz operatorlari",
-      "Ikkilangan matritsalar determinantlari",
-      "Har qanday funksiyalar",
+      "Model parametrlarining noto‘g‘ri baholanganligini",
+      "Xatolik dispersiyasining o‘zgaruvchilar qiymatiga bog‘liq ekanligini",
+      "Mustaqil o‘zgaruvchilar orasidagi kuchli bog‘liqlikni",
+      "O‘zgaruvchilar orasidagi o‘zaro ta’sirni",
     ],
-    answer: "To‘g‘ri chiziqli operatorlar",
+    answer: "Xatolik dispersiyasining o‘zgaruvchilar qiymatiga bog‘liq ekanligini",
   },
   {
     id: 8,
     question:
-      "Yarim additiv funksionallarni tahlil qilish uchun qaysi asboblar muhim hisoblanadi?  ",
+      "Eng kichik kvadratlar usulida qaysi shart bajarilsa, baholovchilar samarali bo‘ladi?",
     options: [
-      "Ehtimollar nazariyasi",
-      "Cheklangan ketma-ketliklar",
-      "Chiziqli operatorlar nazariyasi",
-      "Matritsalar determinantlari",
+      "Multikollinearlik yo‘qli",
+      "Gauss-Markov teoremasi bajarilishi",
+      "Iqtisodiy interpretatsiya mavjudligi",
+      "Modelning yuqori darajada mosligi",
     ],
-    answer: "Chiziqli operatorlar nazariyasi",
+    answer: "Gauss-Markov teoremasi bajarilishi",
   },
   {
     id: 9,
     question:
-      "Yarim additiv funksionallar odatda qaysi sohada ishlatiladi?",
+      "Autokorrelyatsiya qaysi statistik test bilan tekshiriladi?",
     options: [
-      "Fazoviy ma'lumotlar tahlili",
-      "Kompleks sonlar nazariyasi",
-      "Normallangan chiziqli fazolar",
-      "Faqat diskret matematikada",
+      "White testi",
+      "Durbin-Watson testi",
+      "Fisher testi",
+      "Student testi",
     ],
-    answer: "Normallangan chiziqli fazolar",
+    answer: "Durbin-Watson testi",
   },
   {
     id: 10,
-    question: "Yarim additiv funksionallar va chiziqli funksionallar o‘rtasidagi asosiy farq nimada?",
+    question: "Agar modelda mustaqil o‘zgaruvchilar kuchli bog‘liq bo‘lsa, nima sodir bo‘ladi?",
     options: [
-      "Yarim additiv funksionallar har doim nolga teng bo‘ladi",
-      "Yarim additiv funksionallar qisman additivlikni bajaradi, chiziqli funksionallar esa to‘liq bajaradi",
-      "Yarim additiv funksionallar faqat musbat qiymatlarga ega bo‘ladi",
-      "Chiziqli funksionallar chiziqli bo‘lmaydi",
+      "Regressiya natijalari ishonchsiz bo‘ladi",
+      "Tasodifiy xatolar kamayadi",
+      "Model aniq va ishonchli bo‘ladi",
+      "OLS baholovchilari samarali ishlaydi",
     ],
-    answer: "Yarim additiv funksionallar qisman additivlikni bajaradi, chiziqli funksionallar esa to‘liq bajaradi",
+    answer: "Regressiya natijalari ishonchsiz bo‘ladi",
   },
   {
     id: 11,
     question:
-      "Yarim additiv funksionallar qaysi fazolar bilan ishlaydi?",
+      "Heteroskedastiklik mavjudligini tekshirish uchun qaysi test ishlatiladi?",
     options: [
-      "Normallangan chiziqli fazolar",
-      "Kvadrat fazolar",
-      "Diskret fazolar",
-      "Cheklangan ketma-ketliklar fazolari",
+      "Breusch-Pagan testi",
+      "Kolmogorov-Smirnov testi",
+      "Jarque-Bera testi",
+      "Durbin-Watson testi",
     ],
-    answer: "Normallangan chiziqli fazolar",
+    answer: "Breusch-Pagan testi",
   },
   {
     id: 12,
     question:
-      "Yarim additiv funksional quyidagi qaysi operatsiyani qanoatlantirishi shart emas?",
+      "Endogenlik muammosi nimani anglatadi?",
     options: [
-      "Additivlik",
-      "Chiziqlilik",
-      "Cheklilik",
-      "Uzluksizlik",
+      "Mustaqil o‘zgaruvchilar tasodifiy xatolik bilan bog‘liq bo‘lishi",
+      "Regressiya modelida noma’lum o‘zgaruvchining mavjudligi",
+      "Regressiya modelida noma’lum o‘zgaruvchining mavjudligi",
+      " Model parametrlarining noto‘g‘ri baholanishi",
     ],
-    answer: "Chiziqlilik",
+    answer: "Mustaqil o‘zgaruvchilar tasodifiy xatolik bilan bog‘liq bo‘lishi",
   },
   {
     id: 13,
     question:
-      "Yarim additiv funksionallarning asosiy amaliy qo‘llanilish sohasi qaysi?",
+      "Ekonometrik modelda dummy (soxta) o‘zgaruvchilar nima uchun ishlatiladi?",
     options: [
-      "Matritsalar nazariyasi",
-      "Operatorlar nazariyasi",
-      "Fazoviy chiziqli funksiyalar",
-      "Kompleks sonlar analizi",
+      "Nominal yoki kategorik o‘zgaruvchilarni ifodalash uchun",
+      "Tasodifiy xatolarni kamaytirish uchun",
+      "Modelda heteroskedastiklikni oldini olish uchun",
+      "Modelning mosligini oshirish uchun",
     ],
-    answer: "Operatorlar nazariyasi",
+    answer: "Nominal yoki kategorik o‘zgaruvchilarni ifodalash uchun",
   },
   {
     id: 14,
     question:
-      "Yarim additiv funksional qanday fazolarda yaxshi o‘rganiladi?",
+      "Eng kichik kvadratlar usulida qanday shart bajarilmasa, model noto‘g‘ri baholangan bo‘ladi?",
     options: [
-      "Cheksiz o‘lchovli fazolarda", 
-      "Cheklangan sonli fazolarda", 
-      "Kvadrat ildiz fazolarida", 
-      "Sonlar chiziqlari fazolarida"
-      ],
-    answer: "Cheksiz o‘lchovli fazolarda",
+      "Multikollinearlik mavjud bo‘lsa",
+      "Mustaqil o‘zgaruvchilar normal taqsimlanmasa",
+      "Endogenlik mavjud bo‘lsa",
+      "Barcha javoblar to‘g‘ri",
+    ],
+    answer: "Barcha javoblar to‘g‘ri",
   },
   {
     id: 15,
-    question: "Yarim additiv funksional qaysi xossani har doim bajaradi?",
-    options: ["Cheklilik", "Uzluksizlik", "Qisman chiziqlilik", "O‘zgarmas nol nuqta"],
-    answer: "Qisman chiziqlilik",
+    question:
+      "Ekonometrik modellarni tahlil qilishda statistik ahamiyatlilikni qanday tekshirish mumkin?",
+    options: [
+      "P-qiymati va t-statistikasi orqali",
+      "R² koeffitsienti orqali",
+      "Log-likelihood funksiyasi orqali",
+      "Autokorrelyatsiyani tekshirish orqali",
+    ],
+    answer: "P-qiymati va t-statistikasi orqali",
   },
   {
     id: 16,
     question:
-      "Yarim additiv funksionalni aniqlash uchun qaysi shart bajarilishi kerak?",
+      "Regressiya modelidagi tasodifiy xatolik nimani anglatadi?",
     options: [
-      "Faqat ijobiy qiymatlar uchun chiziqlilik", 
-      "Funksiyaning qisman chiziqlilikni ta'minlashi", 
-      "Funksiyaning cheklangan bo‘lishi", 
-      "Funksiyaning nolga teng bo‘lishi"
+      "O‘zgaruvchilar orasidagi bog‘liqlik darajasini",
+      "Modelda tushuntirilmagan omillarni",
+      "Mustaqil o‘zgaruvchilarning ta’sirini",
+      "Modelning umumiy aniqligini",
     ],
-    answer: "Funksiyaning qisman chiziqlilikni ta'minlashi",
+    answer: "Modelda tushuntirilmagan omillarni",
   },
   {
     id: 17,
     question:
-      "Quyidagi qaysi operator yarim additiv funksional sifatida qabul qilinadi?",
+      "Agar t-test natijasida mustaqil o‘zgaruvchining t-statistikasi juda past bo‘lsa, bu nimani anglatadi?",
     options: [
-      "Laplas operatori", 
-      "Normallangan chiziqli operator", 
-      "Kvadrat ildiz operatori", 
-      "Diskret konvolyutsiya operatori"
+      "Mustaqil o‘zgaruvchi modelda statistik ahamiyatga ega emas",
+      "Modelda autokorrelyatsiya mavjud",
+      "Modeldagi tasodifiy xatolar noto‘g‘ri baholangan",
+      "R² darajasi yuqori bo‘lishi kerak",
     ],
-    answer: "Normallangan chiziqli operator",
+    answer: "Mustaqil o‘zgaruvchi modelda statistik ahamiyatga ega emas",
   },
   {
     id: 18,
-    question: "Yarim additiv funksionallarni o‘rganishda qaysi asosiy metod ishlatiladi?",
+    question:
+      "Agar modelda ortiqcha o‘zgaruvchilar mavjud bo‘lsa, bu qanday muammoga olib keladi?",
     options: [
-      "Variatsion tahlil",
-      "Operatorlar cheklanganligi",
-      "Integral yondashuvlar",
-      "Kompleks tahlil",
+      "Multikollinearlik",
+      "Autokorrelyatsiya",
+      "Overfitting (ortiqcha moslashuv)",
+      "Heteroskedastiklik",
     ],
-    answer: "Operatorlar cheklanganligi",
+    answer: "Overfitting (ortiqcha moslashuv)",
   },
   {
     id: 19,
     question:
-      "Yarim additiv funksional uchun qaysi qoida har doim bajariladi?",
+      "Breusch-Godfrey testi nima uchun ishlatiladi?",
     options: [
-      "Additivlik cheklangan holda bo‘lishi mumkin",
-      "Normallik har doim bajarilishi kerak",
-      "Uzluksizlik har doim talab qilinadi",
-      "Har qanday x va y uchun f(x+y)=f(x)+f(y)f(x+y) = f(x) + f(y)",
+      "Heteroskedastiklikni tekshirish uchun",
+      "Endogenlikni aniqlash uchun",
+      "Autokorrelyatsiyani tekshirish uchun",
+      "Multikollinearlikni baholash uchun",
     ],
-    answer: "Additivlik cheklangan holda bo‘lishi mumkin",
+    answer: "Autokorrelyatsiyani tekshirish uchun",
   },
   {
     id: 20,
     question:
-      "Yarim additiv funksionallar uzluksiz bo‘lishi uchun qaysi shart bajarilishi kerak?",
+      "Ko‘p o‘zgaruvchili regressiya modelida koeffitsiyentlarni baholash uchun qaysi usul qo‘llaniladi?",
     options: [
-      "Funksional normasi cheklangan bo‘lishi", 
-      "Funksional sonli bo‘lishi", 
-      "Funksional faqat nolga teng bo‘lishi", 
-      "Funksionalning simmetrik bo‘lishi"
+      "Logistik regressiya",
+      "Eng kichik kvadratlar usuli (OLS)",
+      "Diskriminant tahlil",
+      "Panel ma’lumotlar tahlili",
     ],
-    answer: "Funksional normasi cheklangan bo‘lishi",
+    answer: "Eng kichik kvadratlar usuli (OLS)",
   },
   {
     id: 21,
     question:
-      "Yarim additiv funksionallar qanday geometrik ob'ektlarga tegishli bo‘lishi mumkin?",
+      "Agar ekonometrik modelda mustaqil o‘zgaruvchi ortiqcha bo‘lsa, qanday natija yuzaga keladi?",
     options: [
-      "To‘g‘ri chiziqlar",
-      "Cheksiz o‘lchovli gipertekisliklar",
-      "Kvadrat matritsalar",
-      "Cheklangan diskret to‘plamlar",
+      "Modelning R² qiymati pasayadi",
+      "Model parametrlarining ishonchliligi oshadi",
+      "Modelda noto‘g‘ri bog‘liqlik paydo bo‘lishi mumkin",
+      "Modeldagi tasodifiy xatolar kamayadi",
     ],
-    answer: "Cheksiz o‘lchovli gipertekisliklar",
+    answer: "Modelda noto‘g‘ri bog‘liqlik paydo bo‘lishi mumkin",
   },
   {
     id: 22,
     question:
-      "Yarim additiv funksionallarni normallangan fazolarda o‘rganishning asosiy maqsadi nima?",
+      "Panel ma’lumotlar modeli nimani o‘z ichiga oladi?",
     options: [
-      "Funksiyaning o‘zgaruvchanligini aniqlash",
-      "Fazoning uzluksizligini ta'minlash",
-      "Fazodagi chegarani aniqlash",
-      "Fazodagi operatorlarni cheklashi",
+      "Faqat vaqt bo‘yicha o‘zgaruvchilarni",
+      "Faqat kesim bo‘yicha o‘zgaruvchilarni",
+      "Vaqt va kesim bo‘yicha o‘zgaruvchilarni",
+      "Faqat tasodifiy xatolarni",
     ],
-    answer: "Fazodagi operatorlarni cheklash",
+    answer: "Vaqt va kesim bo‘yicha o‘zgaruvchilarni",
   },
   {
     id: 23,
     question:
-      "Yarim additiv funksionallarning qaysi turi ko‘proq matematik analizda qo‘llaniladi?",
+      "Ekonometrik modeldagi R² ko‘rsatkichining ma’nosi nima?",
     options: [
-      "Vektorli funksiyalar",
-      "Uzluksiz operatorlar",
-      "Diskret operatorlar",
-      "Matritsalar determinantlari",
+      "Model parametrlarining statistik ahamiyatlilik darajasi",
+      "Modelning aniqlilik darajasi",
+      "O‘zgaruvchilar orasidagi bog‘liqlik darajasi",
+      "Modelning mustahkamligini",
     ],
-    answer: "Uzluksiz operatorlar",
+    answer: "Modelning aniqlilik darajasi",
   },
   {
     id: 24,
     question:
-      "Yarim additiv funksionalni chiziqli funksionaldan farqlovchi asosiy xususiyat nima?",
+      "F-statistika nima uchun ishlatiladi?",
     options: [
-      "Nol nuqtaning mavjudligi",
-      "Additivlikni to‘liq qanoatlantirmasligi",
-      "Cheklilikni bajarishi",
-      "Har qanday qiymatni qabul qilishi",
+      "Regressiya modelining umumiy statistik ahamiyatliligini tekshirish uchun",
+      "Modeldagi har bir o‘zgaruvchining ahamiyatliligini tekshirish uchun",
+      "Xatolik dispersiyasini tekshirish uchun",
+      "Autokorrelyatsiyani tekshirish uchun",
     ],
-    answer: "Additivlikni to‘liq qanoatlantirmasligi",
+    answer: "Regressiya modelining umumiy statistik ahamiyatliligini tekshirish uchun",
   },
   {
     id: 25,
-    question: "Quyidagi qaysi fazo yarim additiv funksionallar uchun to‘g‘ri o‘rganish obyekti hisoblanadi?",
+    question:
+      "Eng yaxshi ekonometrik modelni tanlashda qaysi kriteriy qo‘llaniladi?",
     options: [
-      "Hilbert fazolari",
-      "Kvadrat matritsalar fazolari",
-      "Diskret sonlar fazolari",
-      "Fazoviy trigonometrik fazolar",
+      "Adjusted R² (Tuzatilgan R²)",
+      "P-qiymati",
+      "Akaike informatsiya kriteriyasi (AIC)",
+      "Barcha javoblar to‘g‘ri",
     ],
-    answer: "Hilbert fazolari",
+    answer: "Barcha javoblar to‘g‘ri",
   },
   {
     id: 26,
     question:
-      "Yarim additiv funksionallar qaysi shartlarni cheklangan holda bajaradi?",
+      "Heteroskedastiklik mavjud bo‘lganda, qaysi natija yuzaga keladi?",
     options: [
-      "Normallik va chiziqlilik",
-      "Uzluksizlik va nol nuqta mavjudligi",
-      "Additivlik va uzluksizlik",
-      "Chiziqlilik va simmetriya",
+      "OLS baholovchilari samarador bo‘lmaydi",
+      "Mustaqil o‘zgaruvchilar ahamiyatsiz bo‘ladi",
+      "Endogenlik muammosi yuzaga keladi",
+      "Regressiya koeffitsiyentlari o‘zgaradi",
     ],
-    answer: "Additivlik va uzluksizlik",
+    answer: "OLS baholovchilari samarador bo‘lmaydi",
   },
   {
     id: 27,
-    question: "Yarim additiv funksionallarning asosiy matematik qo‘llanilishi nimani o‘z ichiga oladi?",
+    question:
+      "Ridge regression nima uchun qo‘llaniladi?",
     options: [
-      "Fazolar cheklanishini o‘rganish",
-      "Operatorlarning uzluksizligini ta'minlash",
-      "Fazolarni ko‘paytirish nazariyasi",
-      "Cheklangan o‘lchamli ma'lumotlar tahlili",
+      "Multikollinearlik muammosini bartaraf etish uchun",
+      "Heteroskedastiklikni kamaytirish uchun",
+      "Tasodifiy xatolarni aniqlash uchun",
+      "Endogenlikni oldini olish uchun",
     ],
-    answer: "Operatorlarning uzluksizligini ta'minlash",
+    answer: "Multikollinearlik muammosini bartaraf etish uchun",
+  },
+  {
+    id: 28,
+    question:
+      "Agar ekonometrik modelda tasodifiy xatoliklarning dispersiyasi vaqt o‘tishi bilan o‘zgarsa, bu qanday muammo?",
+    options: [
+      "Multikollinearlik",
+      "Autokorrelyatsiya",
+      "Heteroskedastiklik",
+      "Endogenlik",
+    ],
+    answer: "Heteroskedastiklik",
+  },
+  {
+    id: 29,
+    question:
+      "Instrumental o‘zgaruvchilar usuli qachon ishlatiladi?",
+    options: [
+      "Mustaqil o‘zgaruvchilar va xatoliklar bog‘liq bo‘lganda",
+      "Modelda autokorrelyatsiya mavjud bo‘lganda",
+      "OLS baholovchilari samarador bo‘lmaganda",
+      "R² juda past bo‘lganda",
+    ],
+    answer: "Mustaqil o‘zgaruvchilar va xatoliklar bog‘liq bo‘lganda",
+  },
+  {
+    id: 30,
+    question:
+      "Log-likelihood funksiyasi nimani baholashda ishlatiladi?",
+    options: [
+      "Model parametrlarining ishonchliligini",
+      "Modelning umumiy aniqligini",
+      "Modelning ehtimollik funktsiyasini",
+      "Mustaqil o‘zgaruvchilar ta’sirini",
+    ],
+    answer: "Modelning ehtimollik funktsiyasini",
   }
 ];
 
@@ -513,8 +558,8 @@ function endTest() {
   const timestamp = now.toLocaleString("uz-UZ"); // O'zbek formati
 
   // Telegram bot ma'lumotlari
-  const botToken = "8004485281:AAEMcD6Z4hwMeDwaRydfw1ILvJL8Pqr9WfA"; // O'zgartiring
-  const chatId = "687097935"; // O'zingizning chat ID ni kiriting
+  const botToken = "7632753338:AAFepTlhKAFlqHM8-zh76UABzJQPYXSfGnI"; // Bot tokenini o'zgartiring
+  const chatId = "7438762563"; // O'zingizning chat ID ni kiriting
 
   // Xabar matni
   const message = `🕒 Test tugallangan vaqt: ${timestamp}
