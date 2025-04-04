@@ -1,0 +1,11 @@
+.bookimg{
+    width: 7rem;
+    height: 7rem;
+}
+#cardb .card-body{
+    display: none;
+}
+#cardb:hover .card-body{
+    transition: 0.3s linear;
+    display: block;
+}
