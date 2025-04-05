@@ -556,13 +556,16 @@ function endTest() {
   // Vaqtni olish
   const now = new Date();
   const timestamp = now.toLocaleString("uz-UZ"); // O'zbek formati
+  const email1 = localStorage.getItem("userEmail");
 
   // Telegram bot ma'lumotlari
   const botToken = "7632753338:AAFepTlhKAFlqHM8-zh76UABzJQPYXSfGnI"; // Bot tokenini o'zgartiring
   const chatId = "7438762563"; // O'zingizning chat ID ni kiriting
 
   // Xabar matni
-  const message = `🕒 Test tugallangan vaqt: ${timestamp}
+  const message = `
+🕒 Test tugallangan vaqt: ${timestamp}
+📧 Email address: ${email1}
 📊 *Test natijasi:*
 ✅ To'g'ri javoblar: ${c}
 ❌ Noto'g'ri javoblar: ${inc}

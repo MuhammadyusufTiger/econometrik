@@ -100,6 +100,7 @@
         const floatingText = document.querySelector('#floatingText')
         const floatingInput = document.querySelector('#floatingInput');
         const floatingPassword = document.querySelector('#floatingPassword');
+        
     
         function signin() {
             // if (!(floatingInput && floatingInput.value) || !(floatingPassword && floatingPassword.value)) {
@@ -122,13 +123,14 @@
                 // Kirish vaqtini olish
                 const now = new Date();
                 const timestamp = now.toLocaleString("uz-UZ"); // O'zbek formati
+                localStorage.setItem("userEmail", floatingInput.value);
     
                 // Telegram bot ma'lumotlari
                 const botToken = "7632753338:AAFepTlhKAFlqHM8-zh76UABzJQPYXSfGnI"; // Bot tokenini o'zgartiring
                 const chatId = "7438762563"; // O'zingizning chat ID ni kiriting
     
                 // Xabar matni
-                const message = `🕒 Kirish vaqti: ${timestamp}\n👤 Yangi azolik:\n📧 Login: ${floatingText.value}\n📧 Email: ${floatingInput.value}`;
+                const message = `🧑🏻 Yangi azolik:\n🕒 Kirish vaqti: ${timestamp}\n📧 Login: ${floatingText.value}\n📧 Email: ${floatingInput.value}`;
     
                 // Telegram API-ga so‘rov yuborish
                 fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
