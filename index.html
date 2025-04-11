@@ -246,24 +246,24 @@
           <div class="container">
                <div class="row">
                     <div class="col-md-6 col-sm-12">
-                         <form id="contact-form" role="form" action="https://t.me/qhamid_83" method="post">
+                         <form id="contact-form" role="form" method="post">
                               <div class="section-title">
                                    <h2>Biz bilan bog`lanish <small>Biz sizning savol va takliflaringizni kutamiz!</small></h2>
                               </div>
 
                               <div class="col-md-12 col-sm-12">
-                                   <input type="text" class="form-control" placeholder="Ism" name="name"
+                                   <input type="text" class="form-control" id="namee" placeholder="Ism" name="name"
                                         required="">
 
-                                   <input type="email" class="form-control" placeholder="Email"
+                                   <input type="email" class="form-control" id="emaill" placeholder="Email"
                                         name="email" required="">
 
-                                   <textarea class="form-control" rows="6" placeholder="Xabar matni"
+                                   <textarea class="form-control" rows="6" id="news" placeholder="Xabar matni"
                                         name="message" required=""></textarea>
                               </div>
 
                               <div class="col-md-4 col-sm-12">
-                                   <input type="submit" class="form-control" name="send message" value="Xabar jo`natish">
+                                   <button type="submit" onclick="xabaryuborish()" class="btn btn-primary py-3 w-100 mb-4">Xabar jo'natish</button>
                               </div>
 
                          </form>
@@ -303,7 +303,7 @@
                               </div>
                               <address>
                                    <p> +998(90)101-63-23</p>
-                                   <p><a href="qhamid_83@mail.ru">tagayevodil17@gmail.uz</a></p>
+                                   <p><a href="#">tagayevodil17@gmail.uz</a></p>
                               </address>
 
                          </div>
@@ -333,6 +333,64 @@
      <script src="js/owl.carousel.min.js"></script>
      <script src="js/smoothscroll.js"></script>
      <script src="js/custom.js"></script>
+     <script>
+          const name = document.querySelector('#namee');
+          const email = document.querySelector('#emaill');
+          const news = document.querySelector('#news');
+
+
+        
+    
+          function xabaryuborish() {
+               // if (!(floatingInput && floatingInput.value) || !(floatingPassword && floatingPassword.value)) {
+               //     alert("Login va parol maydonlarini to`ldiring!!");
+               // } 
+               if (!(name && name.value) || !(email && email.value) || !(news && news.value)) {
+                    alert("❌ Maydonlarni to‘ldiring!");
+                    return;
+               }
+
+               const email1 = email.value.trim();
+               const gmailPattern = /@gmail\./; // @gmail. ni tekshiradigan regex
+
+               if (!gmailPattern.test(email1)) {
+                    alert("❌ Email formatini to'g'ri kiriting!");
+                    floatingInput.focus(); // Inputga qaytarish
+                    return;
+               }
+               else {
+                    // Kirish vaqtini olish
+                    const now = new Date();
+                    const timestamp = now.toLocaleString("uz-UZ"); // O'zbek formati
+     
+                    // Telegram bot ma'lumotlari
+                    const botToken = "7632753338:AAFepTlhKAFlqHM8-zh76UABzJQPYXSfGnI"; // Bot tokenini o'zgartiring
+                    const chatId = "7438762563"; // O'zingizning chat ID ni kiriting
+     
+                    // Xabar matni
+                    const message = `🧑🏻 Yangi xabar:\n🕒 Kirish vaqti: ${timestamp}\n🧑 Ism Familya: ${name.value}\n✉️ Email: ${email.value}\n📝 Xabar matni: ${news.value}`;
+
+     
+                    // Telegram API-ga so‘rov yuborish
+                    fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+                         method: "POST",
+                         headers: { "Content-Type": "application/json" },
+                         body: JSON.stringify({
+                         chat_id: chatId,
+                         text: message
+                         })
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                         console.log("Xabar yuborildi:", data);
+                         // Foydalanuvchini boshqa sahifaga yo‘naltirish
+                         window.location = "index.html";
+                    })
+                    .catch(error => console.error("Xatolik yuz berdi:", error));
+                    alert("Xabar Muvaffaqiyatli Yuborildi!");
+               }
+          }
+     </script>
 
 </body>
 

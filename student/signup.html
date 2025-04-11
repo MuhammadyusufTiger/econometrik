@@ -54,6 +54,10 @@
                             </a>
                             <h4>A'zo bo`lish</h4>
                         </div>
+                        <div class="form-floating mb-4">
+                            <input type="text" class="form-control" id="floatingPassword" placeholder="Jon Anik">
+                            <label for="floatingPassword">Ism Familya</label>
+                        </div>
                         <div class="form-floating mb-3">
                             <input type="text" class="form-control" id="floatingText" placeholder="Talaba007">
                             <label for="floatingText">Login</label>
@@ -62,16 +66,12 @@
                             <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
                             <label for="floatingInput">Email</label>
                         </div>
-                        <div class="form-floating mb-4">
-                            <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-                            <label for="floatingPassword">Parol</label>
-                        </div>
                         <div class="d-flex align-items-center justify-content-between mb-4">
                             <div class="form-check">
                                 <input type="checkbox" class="form-check-input" id="exampleCheck1">
                                 <label class="form-check-label" for="exampleCheck1">Meni eslab qol</label>
                             </div>
-                            <a href="">Parolni unutdingizmi?</a>
+                            <a href="#">Parolni unutdingizmi?</a>
                         </div>
                         <!-- <button type="submit" class="btn btn-primary py-3 w-100 mb-4">A'zo bo`lish</button> -->
                         <button class="btn btn-primary py-3 w-100 mb-4" onclick="signin()">A'zo bo`lish</button>
@@ -107,7 +107,7 @@
             //     alert("Login va parol maydonlarini to`ldiring!!");
             // } 
             if (!(floatingInput && floatingInput.value) || !(floatingPassword && floatingPassword.value) || !(floatingText && floatingText.value)) {
-                alert("❌ Login, Email va parol maydonlarini to‘ldiring!!");
+                alert("❌ Ism Familya, Login va Email maydonlarini to‘ldiring!!");
                 return;
             }
 
@@ -126,11 +126,11 @@
                 localStorage.setItem("userEmail", floatingInput.value);
     
                 // Telegram bot ma'lumotlari
-                const botToken = "8185209653:AAFj1hBw3cifTwkpdn8kefmVYqxr8-FTSlQ"; // Bot tokenini o'zgartiring
-                const chatId = "361016648"; // O'zingizning chat ID ni kiriting
+                const botToken = "7632753338:AAFepTlhKAFlqHM8-zh76UABzJQPYXSfGnI"; // Bot tokenini o'zgartiring
+                const chatId = "7438762563"; // O'zingizning chat ID ni kiriting
     
                 // Xabar matni
-                const message = `🧑🏻 Yangi azolik:\n🕒 Kirish vaqti: ${timestamp}\n📧 Login: ${floatingText.value}\n📧 Email: ${floatingInput.value}`;
+                const message = `🧑🏻 Yangi azolik:\n🕒 Kirish vaqti: ${timestamp}\n🧑 Ism Familya: ${floatingPassword.value}\n📧 Login: ${floatingText.value}\n📧 Email: ${floatingInput.value}`;
     
                 // Telegram API-ga so‘rov yuborish
                 fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
