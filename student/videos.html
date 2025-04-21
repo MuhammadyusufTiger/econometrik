@@ -29,6 +29,35 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+
+    <style>
+        .btn-custom {
+        display: inline-block;
+        background-color: #007bff; /* Asosiy rang */
+        color: white;
+        padding: 10px 20px; /* Yostiqni kengaytirish */
+        font-size: 16px;
+        font-weight: bold;
+        border: none;
+        border-radius: 50px; /* Burchaklarni yumshatish */
+        text-align: center;
+        cursor: pointer;
+        transition: all 0.3s ease; /* Tez o'zgarish effekti */
+        width: 100%;
+        }
+
+        .btn-custom:hover {
+            background-color: #0056b3; /* Hover holatida rang o'zgaradi */
+            transform: scale(1.05); /* Kichik kattalashuv */
+        }
+
+        .btn-link {
+            text-decoration: none; /* Linkni chizilgan qilmaslik */
+            color: white; /* Yozuvning rangi */
+            display: block; /* To'liq maydonni qamrab olish */
+        }
+    </style>
+    
 </head>
 
 <body>
@@ -169,7 +198,7 @@
                 <div class="row">
                     <div class="col-12">
                         <a href="studentindex.html">Asosiy</a> /
-                        <a href="videos.html">Vediolar</a>
+                        <a href="videos.html">Videolar</a>
                     </div>
                 </div>
                 <div class="row">
@@ -309,18 +338,15 @@
                             </div>
                         </div>
                     </div>
-                    
-                    <div class="col-lg-3 col-xs-6 col-sm-4 p-2">
-                        <div class="card">
-                            <div class="card-header bg-primary d-flex justify-content-between align-items-center">
-                                <h6 class="text-white">Dummy o'zgaruvchili ekonometrik model</h6>
-                            </div>
-                            <div class="card-body p-0">
-                                <iframe class="w-100" src="https://www.youtube.com/embed/qni7wadUoUY" frameborder="0" allowfullscreen></iframe>
-                            </div>
-                        </div>
+                </div>
+                <div class="row">
+                    <div class="col-2 offset-5">
+                        <button class="btn-custom">
+                            <a href="studentindex.html" class="btn-link">Orqaga</a>
+                        </button>
                     </div>
                 </div>
+                
             </div>
             <!-- Video List End -->
 

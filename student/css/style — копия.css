@@ -1,0 +1,112 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  body {
+    background-color: #121212;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .wrapper {
+    width: 100%;
+    max-width: 450px;
+    padding: 40px;
+  }
+  
+  .form-box {
+    background: #1e1e1e;
+    padding: 50px 40px;
+    border-radius: 20px;
+    position: relative;
+    box-shadow: 0 0 25px rgba(0, 255, 255, 0.2),
+                0 0 60px rgba(255, 0, 255, 0.1);
+    border: 2px solid transparent;
+    background-clip: padding-box;
+  }
+  
+  .form-box::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    z-index: -1;
+    background: linear-gradient(135deg, #00f0ff, #ff00c8);
+    border-radius: 22px;
+  }
+  
+  .form-box h2 {
+    text-align: center;
+    color: #00f0ff;
+    margin-bottom: 30px;
+    font-size: 30px;
+  }
+  
+  .input-group {
+    margin-bottom: 25px;
+  }
+  
+  .input-group label {
+    color: #ccc;
+    font-size: 15px;
+    display: block;
+    margin-bottom: 8px;
+  }
+  
+  .input-group input {
+    width: 100%;
+    padding: 14px 18px;
+    border-radius: 12px;
+    border: none;
+    background: #333;
+    color: #fff;
+    font-size: 16px;
+    outline: none;
+    transition: 0.3s ease;
+  }
+  
+  .input-group input:focus {
+    box-shadow: 0 0 8px #00f0ff;
+  }
+  
+  .neon-btn {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 30px;
+    background: linear-gradient(to right, #00f0ff, #00d0ff);
+    color: #000;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 0 20px #00f0ff;
+    transition: 0.3s ease;
+  }
+  
+  .neon-btn:hover {
+    box-shadow: 0 0 30px #00f0ff, 0 0 60px #00f0ff;
+  }
+  
+  .links {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .links a {
+    color: #ff00c8;
+    text-decoration: none;
+    font-weight: 600;
+  }
+  
+  .links a:hover {
+    text-decoration: underline;
+  }
+  
+  

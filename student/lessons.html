@@ -30,6 +30,52 @@
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
     <link rel="stylesheet" href="css/test.css">
+
+    <style>
+        .small-box {
+            text-align: center;
+        }
+    
+        .btn-custom {
+            display: block;
+            padding: 30px 20px;
+            background: linear-gradient(145deg, #4facfe, #00f2fe);
+            color: white !important;
+            border: none;
+            border-radius: 20px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease-in-out;
+            text-decoration: none;
+        }
+    
+        .btn-custom:hover {
+            background: linear-gradient(145deg, #00f2fe, #4facfe);
+            transform: translateY(-5px);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3);
+        }
+    
+        .btn-custom h2,
+        .btn-custom h4,
+        .btn-custom h5 {
+            margin: 10px 0;
+            color: white;
+        }
+    
+        .btn-custom h2 {
+            font-size: 36px;
+        }
+    
+        @media (max-width: 768px) {
+            .btn-custom {
+                padding: 20px 10px;
+            }
+            .btn-custom h2 {
+                font-size: 28px;
+            }
+        }
+    </style>
+    
+
 </head>
 
 <body>
@@ -185,15 +231,15 @@
                     <div class="continer-fluid pb-5">
                         <div class="row g-4 pt-5 d-flex justify-content-between">
                             <div class="col-lg-6 col-xs-6 col-sm-4">
-                                <a class="btn btn-primary w-100 p-2" href="lecture.html">
+                                <a class="btn-custom w-100" href="lecture.html">
                                     <div class="small-box">
-                                        <h2 class="fa fa-tasks text-white"></h2>
-                                        <h4 class="text-white">Ma'ruza mashg`uloti</h4>
+                                        <h2 class="fa fa-tasks"></h2>
+                                        <h4>Ma'ruza mashg`uloti</h4>
                                     </div>
                                 </a>
                             </div>
                             <div class="col-lg-6 col-xs-6 col-sm-4">
-                                <a class="btn btn-primary w-100 p-2" href="stasks.html">
+                                <a class="btn-custom w-100" href="stasks.html">
                                     <div class="small-box">
                                         <h2 class="fa fa-question-circle text-white"></h2>
                                         <h4 class="text-white">Topshiriqlar</h4>
@@ -201,7 +247,7 @@
                                 </a>    
                             </div>
                             <div class="col-lg-6 col-xs-6 col-sm-4">
-                                <a class="btn btn-primary w-100 p-2" href="https://www.wolfram.com/mathematica/">
+                                <a class="btn-custom w-100" href="https://products.aspose.app/cells/editor">
                                     <div class="small-box">
                                         <h2 class="bi bi-calculator text-white"></h2>
                                         <h5 class="text-white">Amaliyotda bajarish</h4>
@@ -209,7 +255,7 @@
                                 </a>
                             </div>
                             <div class="col-lg-6 col-xs-6 col-sm-4">
-                                <a class="btn btn-primary w-100 p-2" href="tests.html">
+                                <a class="btn-custom w-100" href="tests.html">
                                     <div class="small-box">
                                         <h2 class="fa fa-tasks text-white"></h2>
                                         <h4 class="text-white">Testlar</h4>
@@ -218,208 +264,6 @@
                             </div>
                         </div>
                     </div>
-                    <!-- <div class="accordion accordion-flush" id="accordionFlushExample">
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="flush-headingOne">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#flush-collapseOne" aria-expanded="false"
-                                    aria-controls="flush-collapseOne">
-                                    Elektro energitika
-                                </button>
-                            </h2>
-                            <div id="flush-collapseOne" class="accordion-collapse collapse"
-                                aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                                <div class="accordion-body">
-                                    <div class="continer-fluid pb-5">
-                                        <div class="row g-4 pt-5 d-flex justify-content-between">
-                                            <div class="col-lg-6 col-xs-6 col-sm-4">
-                                                <a class="btn btn-primary w-100 p-2" href="lecture.html">
-                                                    <div class="small-box">
-                                                        <h2 class="fa fa-tasks text-white"></h2>
-                                                        <h4 class="text-white">Ma'ruza mashg`uloti</h4>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                            <div class="col-lg-6 col-xs-6 col-sm-4">
-                                                <a class="btn btn-primary w-100 p-2" href="stasks.html">
-                                                    <div class="small-box">
-                                                        <h2 class="fa fa-question-circle text-white"></h2>
-                                                        <h4 class="text-white">Topshiriqlar</h4>
-                                                    </div>
-                                                </a>    
-                                            </div>
-                                            <div class="col-lg-6 col-xs-6 col-sm-4">
-                                                <a class="btn btn-primary w-100 p-2" href="laborotory.html">
-                                                    <div class="small-box">
-                                                        <h2 class="fa fa-flask text-white"></h2>
-                                                        <h5 class="text-white">Labaratoriya</h4>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                            <div class="col-lg-6 col-xs-6 col-sm-4">
-                                                <a class="btn btn-primary w-100 p-2" href="tests.html">
-                                                    <div class="small-box">
-                                                        <h2 class="fa fa-tasks text-white"></h2>
-                                                        <h4 class="text-white">Testlar</h4>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="flush-headingTwo">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#flush-collapseTwo" aria-expanded="false"
-                                    aria-controls="flush-collapseTwo">
-                                    Quyosh energiyasi
-                                </button>
-                            </h2>
-                            <div id="flush-collapseTwo" class="accordion-collapse collapse"
-                                aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
-                                <div class="accordion-body">
-                                    <div class="continer-fluid pb-5">
-                                        <div class="row g-4 pt-5 d-flex justify-content-between">
-                                            <div class="col-lg-6 col-xs-6 col-sm-4">
-                                                <a class="btn btn-primary w-100 p-2" href="lecture.html">
-                                                    <div class="small-box">
-                                                        <h2 class="fa fa-tasks text-white"></h2>
-                                                        <h4 class="text-white">Ma'ruza mashg`uloti</h4>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                            <div class="col-lg-6 col-xs-6 col-sm-4">
-                                                <a class="btn btn-primary w-100 p-2" href="stasks.html">
-                                                    <div class="small-box">
-                                                        <h2 class="fa fa-question-circle text-white"></h2>
-                                                        <h4 class="text-white">Topshiriqlar</h4>
-                                                    </div>
-                                                </a>    
-                                            </div>
-                                            <div class="col-lg-6 col-xs-6 col-sm-4">
-                                                <a class="btn btn-primary w-100 p-2" href="laborotory.html">
-                                                    <div class="small-box">
-                                                        <h2 class="fa fa-flask text-white"></h2>
-                                                        <h5 class="text-white">Labaratoriya</h4>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                            <div class="col-lg-6 col-xs-6 col-sm-4">
-                                                <a class="btn btn-primary w-100 p-2" href="tests.html">
-                                                    <div class="small-box">
-                                                        <h2 class="fa fa-tasks text-white"></h2>
-                                                        <h4 class="text-white">Testlar</h4>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="flush-headingTwo">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#flush-collapseThree" aria-expanded="false"
-                                    aria-controls="flush-collapseTwo">
-                                    Shamol energiyasi
-                                </button>
-                            </h2>
-                            <div id="flush-collapseThree" class="accordion-collapse collapse"
-                                aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
-                                <div class="accordion-body">
-                                    <div class="continer-fluid pb-5">
-                                        <div class="row g-4 pt-5 d-flex justify-content-between">
-                                            <div class="col-lg-6 col-xs-6 col-sm-4">
-                                                <a class="btn btn-primary w-100 p-2" href="lecture.html">
-                                                    <div class="small-box">
-                                                        <h2 class="fa fa-tasks text-white"></h2>
-                                                        <h4 class="text-white">Ma'ruza mashg`uloti</h4>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                            <div class="col-lg-6 col-xs-6 col-sm-4">
-                                                <a class="btn btn-primary w-100 p-2" href="stasks.html">
-                                                    <div class="small-box">
-                                                        <h2 class="fa fa-question-circle text-white"></h2>
-                                                        <h4 class="text-white">Topshiriqlar</h4>
-                                                    </div>
-                                                </a>    
-                                            </div>
-                                            <div class="col-lg-6 col-xs-6 col-sm-4">
-                                                <a class="btn btn-primary w-100 p-2" href="laborotory.html">
-                                                    <div class="small-box">
-                                                        <h2 class="fa fa-flask text-white"></h2>
-                                                        <h5 class="text-white">Labaratoriya</h4>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                            <div class="col-lg-6 col-xs-6 col-sm-4">
-                                                <a class="btn btn-primary w-100 p-2" href="tests.html">
-                                                    <div class="small-box">
-                                                        <h2 class="fa fa-tasks text-white"></h2>
-                                                        <h4 class="text-white">Testlar</h4>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="flush-headingThree">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#flush-collapseFour" aria-expanded="false"
-                                    aria-controls="flush-collapseThree">
-                                    Gidro energitika
-                                </button>
-                            </h2>
-                            <div id="flush-collapseFour" class="accordion-collapse collapse"
-                                aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
-                                <div class="accordion-body">
-                                    <div class="continer-fluid pb-5">
-                                        <div class="row g-4 pt-5 d-flex justify-content-between">
-                                            <div class="col-lg-6 col-xs-6 col-sm-4">
-                                                <a class="btn btn-primary w-100 p-2" href="lecture.html">
-                                                    <div class="small-box">
-                                                        <h2 class="fa fa-tasks text-white"></h2>
-                                                        <h4 class="text-white">Ma'ruza mashg`uloti</h4>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                            <div class="col-lg-6 col-xs-6 col-sm-4">
-                                                <a class="btn btn-primary w-100 p-2" href="stasks.html">
-                                                    <div class="small-box">
-                                                        <h2 class="fa fa-question-circle text-white"></h2>
-                                                        <h4 class="text-white">Topshiriqlar</h4>
-                                                    </div>
-                                                </a>    
-                                            </div>
-                                            <div class="col-lg-6 col-xs-6 col-sm-4">
-                                                <a class="btn btn-primary w-100 p-2" href="laborotory.html">
-                                                    <div class="small-box">
-                                                        <h2 class="fa fa-flask text-white"></h2>
-                                                        <h5 class="text-white">Labaratoriya</h4>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                            <div class="col-lg-6 col-xs-6 col-sm-4">
-                                                <a class="btn btn-primary w-100 p-2" href="tests.html">
-                                                    <div class="small-box">
-                                                        <h2 class="fa fa-tasks text-white"></h2>
-                                                        <h4 class="text-white">Testlar</h4>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div> -->
 
                 </div>
             </div>

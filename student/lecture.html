@@ -30,6 +30,39 @@
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
     <style>
+        body {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100vh;
+          background: linear-gradient(to right, #a1c4fd, #c2e9fb);
+          font-family: 'Segoe UI', sans-serif;
+        }
+    
+        .button-container {
+          display: flex;
+          gap: 20px;
+        }
+    
+        .btn {
+          padding: 15px 30px;
+          border: none;
+          border-radius: 50px;
+          background: linear-gradient(135deg, #667eea, #764ba2);
+          color: white;
+          font-size: 16px;
+          font-weight: bold;
+          cursor: pointer;
+          box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+          transition: all 0.3s ease;
+        }
+    
+        .btn:hover {
+          transform: scale(1.05);
+          box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+        }
+      </style>
+    <style>
         .lScroll {
             height: 600px;
             background: transparent;
@@ -223,6 +256,15 @@
                                     style="height: 600px;"
                                     data="../student/sourses/books/econometrika.pdf">
                                 </object>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6 mt-2">
+                                <div class="button-container">
+                                    <button class="btn"><a href="stasks.html" style="color: white;">Topshiriqlar</a></button>
+                                    <button class="btn"><a href="lessons.html" style="color: white;">Orqaga</a></button>
+                                    <button class="btn"><a href="studentindex.html" style="color: white;">Bosh Sahifaga</a></button>
+                                </div>
                             </div>
                         </div>
                     </div>

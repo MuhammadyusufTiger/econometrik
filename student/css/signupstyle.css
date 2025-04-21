@@ -1,0 +1,109 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Heebo', sans-serif;
+}
+
+body {
+    background: linear-gradient(to right, #c2e9fb, #a1c4fd);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Spinner */
+#spinner {
+    z-index: 9999;
+}
+
+/* Card */
+.bg-light {
+    background: #ffffff;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+.bg-light:hover {
+    transform: scale(1.02);
+}
+
+/* Title & Header */
+.text-primary {
+    color: #4A90E2 !important;
+    font-weight: 700;
+}
+
+h4 {
+    font-weight: 600;
+    color: #333;
+}
+
+/* Form Styles */
+.form-control {
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 12px 15px;
+    font-size: 15px;
+    transition: border-color 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: #4A90E2;
+    box-shadow: none;
+}
+
+/* Labels */
+.form-floating > label {
+    font-size: 14px;
+    color: #888;
+}
+
+/* Checkbox and Link */
+.form-check-label {
+    font-size: 14px;
+}
+
+a {
+    color: #4A90E2;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Button */
+.btn-primary {
+    background: linear-gradient(to right, #4A90E2, #007AFF);
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 16px;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(to right, #007AFF, #4A90E2);
+    transform: translateY(-2px);
+}
+
+.text-center a {
+    margin-left: 5px;
+    font-weight: 600;
+}
+
+/* Responsive fix */
+@media (max-width: 576px) {
+    .bg-light {
+        padding: 30px 20px !important;
+    }
+
+    .text-primary, h4 {
+        font-size: 20px;
+    }
+}

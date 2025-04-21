@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Ekonometrika</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicon -->
+    <link href="imgages/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style — копия.css" rel="stylesheet">
+</head>
+
+<body>
+        <div class="wrapper">
+            <form class="form-box">
+              <h2>Ekonometrika</h2>
+        
+              <div class="input-group">
+                <label for="floatingPassword">Ism Familya</label>
+                <input type="text" id="floatingPassword" placeholder="Ali Valiyev" required>
+              </div>
+        
+              <div class="input-group">
+                <label for="floatingInput">Email</label>
+                <input type="email" id="floatingInput" placeholder="alivaliyev@gmail.com" required>
+              </div>
+        
+              <button onclick="signin()" type="submit" class="neon-btn">Kirish</button>
+        
+              <div class="links">
+                <p>Parolni unutdingizmi? <a href="#">Click Here</a></p>
+                <p>Hisobingiz yo'qmi? <a href="#">Click Here</a></p>
+              </div>
+            </form>
+          </div>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/chart/chart.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/tempusdominus/js/moment.min.js"></script>
+    <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
+    <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+
+    <!-- Template Javascript -->
+    <!-- <script src="js/main.js"></script> -->
+    <script>
+        const floatingInput = document.querySelector('#floatingInput');
+        const floatingPassword = document.querySelector('#floatingPassword');
+        
+        function signin() {
+            // if (!(floatingInput && floatingInput.value) || !(floatingPassword && floatingPassword.value)) {
+            //     alert("Login va parol maydonlarini to`ldiring!!");
+            // } 
+            if (!(floatingInput && floatingInput.value) || !(floatingPassword && floatingPassword.value)) {
+                alert("❌ Ism familya va Login maydonlarini to‘ldiring!!");
+                return;
+            }
+
+            const email = floatingInput.value.trim();
+            const gmailPattern = /@gmail\./; // @gmail. ni tekshiradigan regex
+
+             if (!gmailPattern.test(email)) {
+                alert("❌ Email formatini to'g'ri kiriting!");
+                floatingInput.focus(); // Inputga qaytarish
+                return;
+            }
+            else {
+                // Kirish vaqtini olish
+                const now = new Date();
+                const timestamp = now.toLocaleString("uz-UZ"); // O'zbek formati
+                localStorage.setItem("userEmail", floatingInput.value);
+    
+                // Telegram bot ma'lumotlari
+                const botToken = "7632753338:AAFepTlhKAFlqHM8-zh76UABzJQPYXSfGnI"; // Bot tokenini o'zgartiring
+                const chatId = "7438762563"; // O'zingizning chat ID ni kiriting
+    
+                // Xabar matni
+                const message = `🧑🏻 Yangi kirish:\n🕒 Kirish vaqti: ${timestamp}\n🧑 Ism Familya: ${floatingPassword.value}\n📧 Login: ${floatingInput.value}`;
+    
+                
+                // Telegram API-ga so‘rov yuborish
+                fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                        chat_id: chatId,
+                        text: message
+                    })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    console.log("Xabar yuborildi:", data);
+                    // Foydalanuvchini boshqa sahifaga yo‘naltirish
+                    alert(floatingInput.value);
+                    window.location = "studentindex.html";
+                
+
+                })
+                .catch(error => console.error("Xatolik yuz berdi:", error));
+            }
+        }
+    </script>
+    
+    
+</body>
+
+</html>
