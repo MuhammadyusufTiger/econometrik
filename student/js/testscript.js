@@ -129,6 +129,7 @@ const testdata = [
       "Regressiya modelida noma’lum o‘zgaruvchining mavjudligi",
       " Model parametrlarining noto‘g‘ri baholanishi"
     ],
+
     answer: ["Mustaqil o‘zgaruvchilar tasodifiy xatolik bilan bog‘liq bo‘lishi"]
   },
   {
@@ -250,6 +251,7 @@ const testdata = [
       "O‘zgaruvchilar orasidagi bog‘liqlik darajasi",
       "Modelning mustahkamligini"
     ],
+
     answer: ["Modelning aniqlilik darajasi"]
   },
   {
@@ -332,296 +334,241 @@ const testdata = [
 ];
 
 
-/*******************************
- * Aralash test: radio + checkbox
- *  - testdata[].answer: doim MASSIV (bitta bo‘lsa ham ["..."])
- *  - 1 ta javob -> radio, 2+ -> checkbox
- *******************************/
 
-// Shorthand
-const $ = (s) => document.querySelector(s);
+const user_answer = new Array(25).fill(null);
+const select_answer = new Array(25).fill(null);
 
-// Konfiguratsiya
-const QUESTION_COUNT = 25;        // nechta savol olinadi
-const OPTIONS_PER_QUESTION = 4;   // variantlar soni
+// console.log(user_answer)
+let ansverId;
+let arrayTest = [];
+let arrOption = [];
+var k = 1;
+let fine=0;
+let attemp=5;
 
-// Holat
-const user_answer = new Array(QUESTION_COUNT).fill(null); // har savol uchun [renderIndex,...] yoki null
-let ansverId;                 // 1-based joriy savol raqami
-let arrayTest = [];           // testdata ichidan tanlangan savollar indekslari (uzunligi 25)
-let arrOption = [];           // har savol uchun variantlarning render tartibi
-let fine = 0;                 // "Yordam?" bosilganlar soni (jarima)
-let n;                        // jami tanlangan savollar soni
-
-// Elementlar
-const testbtnlist     = $("#questionbtn");
-const count_question  = $("#count_question");
-const number_question = $("#question-num");
-const question_text   = $(".question-text");
-const timer_teg       = $("#timer");
-const optionsEl       = $("#options");
-
-// Modal elementlar
-const ansverId1  = $("#answerId");
-const cansEl     = $("#cans");
-const icansEl    = $("#icans");
-const fineEl     = $("#fine");
-const fullBallEl = $("#fullball");
-const noselectEl = $("#noselect");
-
-// === Init ===
 $(document).ready(() => {
-  arrayTest = massivTuzish(testdata.length, QUESTION_COUNT); // 25 ta unik indeks
-  for (let i = 0; i < arrayTest.length; i++) {
-    arrOption.push(massivTuzish(OPTIONS_PER_QUESTION, OPTIONS_PER_QUESTION)); // 0..3 aralash tartib
-  }
-
-  // Navigatsiya tugmalari
-  for (let i = 1; i <= arrayTest.length; i++) {
+  arrayTest = massivTuzish(testdata.length, 25);
+  for (var k = 1; k <= arrayTest.length; k++) {
+    arrOption.push(massivTuzish(4, 4));
     testbtnlist.innerHTML += `
       <li>
-        <a class="done" id="que_${i}" onclick="clickbtn(${i})" href="#">${i}</a>
+        <a class="done" id="que_${k}" onclick="clickbtn(${k})" href="#">${k}</a>
       </li>
     `;
   }
-
   setValue(1);
   timer1();
 });
 
-// === Random generatsiya ===
 function massivTuzish(m, n) {
-  const massiv = [];
-  while (massiv.length < n) {
-    const k = Math.floor(Math.random() * m);
-    if (!massiv.includes(k)) massiv.push(k);
+  let massiv = [];
+  let i = 0;
+
+  while (i < n) {
+    var k = Math.floor(Math.random() * m);
+    if (!massiv.includes(k)) {
+      massiv.push(k);
+      i++;
+    }
   }
   return massiv;
 }
 
-// === Yordamchi: answer ni doim massivga keltirish ===
-function normalizeAnswerArray(qData) {
-  if (Array.isArray(qData.answer)) return qData.answer.slice();
-  return [qData.answer];
-}
 
-// === Rasmiy render tartibida to‘g‘ri javob indekslarini topish ===
-function computeCorrectIndexesForRenderedQuestion(qIndex1Based) {
-  const baseIndex   = arrayTest[qIndex1Based - 1];
-  const qData       = testdata[baseIndex];
-  const correctText = normalizeAnswerArray(qData);         // ["...", "..."]
-  const order       = arrOption[qIndex1Based - 1];         // masalan [2,0,3,1]
-  const rendered    = order.map(optIdx => qData.options[optIdx]); // sahifadagi matnlar
 
-  const correctRenderIdx = [];
-  for (let i = 0; i < rendered.length; i++) {
-    if (correctText.includes(rendered[i])) correctRenderIdx.push(i);
-  }
-  return correctRenderIdx; // masalan [1] yoki [0,3]
-}
+function toggleParentClass(radio) {
+  var parent = radio.parentNode;
 
-// === Savolni chizish ===
-function setValue(k1) {
-  n = arrayTest.length;
-  ansverId = k1; // 1-based
+  // Remove 'checked' class from all answer-items
+  var answerItems = document.querySelectorAll(".answer-item");
 
-  number_question.textContent = k1;
-  count_question.textContent  = `${k1}/${n}`;
-
-  const baseIndex = arrayTest[k1 - 1];
-  const qData     = testdata[baseIndex];
-
-  question_text.textContent = qData.question;
-
-  // Variantlarni dinamik chizish
-  optionsEl.innerHTML = "";
-  const correctArr = normalizeAnswerArray(qData);
-  const isMulti    = correctArr.length > 1; // 2+ to‘g‘ri javob bo‘lsa checkbox
-  const groupName  = isMulti ? `multi_${k1}` : `single_${k1}`;
-  const order      = arrOption[k1 - 1];     // [3,0,2,1] kabi
-  const selected   = user_answer[k1 - 1] || []; // oldingi tanlovlar (render indekslari)
-
-  for (let i = 0; i < OPTIONS_PER_QUESTION; i++) {
-    const optOriginalIndex = order[i];
-
-    const label = document.createElement("label");
-    label.className = "answer-item";
-
-    const input = document.createElement("input");
-    input.type = isMulti ? "checkbox" : "radio";
-    input.name = groupName;
-    input.value = String(i);
-
-    const span = document.createElement("span");
-    span.textContent = qData.options[optOriginalIndex];
-
-    // oldindan tanlangan bo‘lsa tiklash
-    const isChecked = selected.includes(i);
-    input.checked = isChecked;
-    if (isChecked) label.classList.add("checked");
-
-    input.addEventListener("change", () => {
-      toggleParentClass(input, isMulti, i);
-    });
-
-    label.appendChild(input);
-    label.appendChild(span);
-    optionsEl.appendChild(label);
-  }
-
-  // Tugmalar holati
-  $("#pbtn").disabled = k1 === 1;
-  $("#nbtn").disabled = k1 === n;
-
-  updateNavButtonsUI();
-}
-
-// === Tanlash boshqaruvi ===
-function toggleParentClass(input, isMulti, renderIndex) {
-  const parent = input.parentNode;
-
-  if (isMulti) {
-    // Ko‘p tanlovli: bir nechta belgilash mumkin
-    parent.classList.toggle("checked", input.checked);
-    let arr = user_answer[ansverId - 1] || [];
-    if (input.checked) {
-      if (!arr.includes(renderIndex)) arr.push(renderIndex);
-    } else {
-      arr = arr.filter(x => x !== renderIndex);
+  for (var i = 0; i < answerItems.length; i++) {
+    if (answerItems[i] == parent) {
+      select_answer[ansverId - 1] = i;
+      user_answer[ansverId - 1] = parent.querySelector("span").innerHTML;
     }
-    user_answer[ansverId - 1] = arr;
-  } else {
-    // Bir tanlovli: faqat bitta
-    const siblings = parent.parentNode.querySelectorAll(".answer-item");
-    siblings.forEach(sib => {
-      sib.classList.remove("checked");
-      const inp = sib.querySelector("input");
-      inp.checked = false;
-    });
+
+    if (answerItems[i] !== parent) {
+      answerItems[i].classList.remove("checked");
+      answerItems[i].querySelector('input[type="radio"]').checked = false;
+    }
+  }
+
+  if (radio.checked) {
     parent.classList.add("checked");
-    input.checked = true;
-    user_answer[ansverId - 1] = [renderIndex];
+    // console.log(testdata[ansverId].answer)
+  } else {
+    parent.classList.remove("checked");
   }
 
-  // Nav tugmasini bo‘yash
-  const cur = document.querySelector(`#que_${ansverId}`);
-  if (cur) cur.style.background = "rgb(0, 156, 255)";
-
-  updateNavButtonsUI();
+  // alert(k);
+  let cur = document.querySelector(`#que_${ansverId}`);
+  cur.style.background = "rgb(0, 156, 255)";
 }
 
-function updateNavButtonsUI() {
-  for (let i = 1; i <= arrayTest.length; i++) {
-    const btn = document.querySelector(`#que_${i}`);
-    if (!btn) continue;
-    const ans = user_answer[i - 1];
-    btn.classList.toggle("answered", Array.isArray(ans) && ans.length > 0);
-    btn.classList.toggle("unanswered", !ans || ans.length === 0);
+function checked_ansver() {
+  var answerItems = document.querySelectorAll(".answer-item");
+
+  for (var i = 0; i < answerItems.length; i++) {
+    answerItems[i].classList.remove("checked");
+    answerItems[i].querySelector('input[type="radio"]').checked = false;
+  }
+
+  if (user_answer[ansverId - 1] != null) {
+    for (var i = 0; i < answerItems.length; i++) {
+      if (i == select_answer[ansverId - 1]) {
+        answerItems[i].classList.add("checked");
+        answerItems[i].querySelector('input[type="radio"]').checked = true;
+      }
+    }
   }
 }
 
-// === Nav handlerlar (HTML onclick) ===
-window.clickbtn = function (id) {
-  const k = parseInt(document.getElementById(`que_${id}`).innerHTML, 10);
+const el = (e) => document.querySelector(e);
+
+const testbtnlist = el("#questionbtn");
+const count_question = el("#count_question");
+const number_question = el("#question-num");
+const question_text = el(".question-text");
+const timer_teg = el("#timer");
+
+const option1 = el("#op1");
+const option2 = el("#op2");
+const option3 = el("#op3");
+const option4 = el("#op4");
+
+let n,
+  a = 1;
+
+function setValue(k) {
+  n = arrayTest.length;
+  ansverId = k;
+  number_question.innerHTML = k;
+  count_question.innerHTML = k + "/" + n;
+  question_text.innerHTML = testdata[arrayTest[k - 1]].question;
+
+  option1.innerHTML = testdata[arrayTest[k - 1]].options[arrOption[k - 1][0]];
+  option2.innerHTML = testdata[arrayTest[k - 1]].options[arrOption[k - 1][1]];
+  option3.innerHTML = testdata[arrayTest[k - 1]].options[arrOption[k - 1][2]];
+  option4.innerHTML = testdata[arrayTest[k - 1]].options[arrOption[k - 1][3]];
+
+  checked_ansver();
+}
+
+function clickbtn(id) {
+  k = document.getElementById(`que_${id}`).innerHTML;
   setValue(k);
-};
+}
 
-window.pClick = function () {
-  const b = parseInt(number_question.textContent, 10);
-  if (b > 1) setValue(b - 1);
-};
+function pClick() {
+  var b = parseInt(number_question.innerHTML);
 
-window.nClick = function () {
-  const b = parseInt(number_question.textContent, 10);
-  if (b < n) setValue(b + 1);
-};
+  if (b > 1) {
+    b -= 1;
+    setValue(b);
+  }
+}
 
-// === Timer ===
+function nClick() {
+  var b = parseInt(number_question.innerHTML);
+  if (b < n) {
+    b += 1;
+    setValue(b);
+  }
+}
+
 function timer1() {
-  let timeLimitInMinutes = 50;
-  let timeLimitInSeconds = timeLimitInMinutes * 60;
+  var timeLimitInMinutes = 50;
+  var timeLimitInSeconds = timeLimitInMinutes * 60;
+  var timerElement = document.getElementById("timer");
 
   function startTimer() {
     timeLimitInSeconds--;
 
+    var minutes = Math.floor(timeLimitInSeconds / 60);
+    var seconds = timeLimitInSeconds % 60;
+
     if (timeLimitInSeconds < 0) {
-      timer_teg.textContent = "00:00";
+      timerElement.textContent = "00:00";
       clearInterval(timerInterval);
       return;
     }
-    let minutes = Math.floor(timeLimitInSeconds / 60);
-    let seconds = timeLimitInSeconds % 60;
+
     if (minutes < 10) minutes = "0" + minutes;
     if (seconds < 10) seconds = "0" + seconds;
-    timer_teg.textContent = `${minutes}:${seconds}`;
+
+    timerElement.innerHTML = minutes + ":" + seconds;
   }
 
-  const timerInterval = setInterval(startTimer, 1000);
+  var timerInterval = setInterval(startTimer, 1000);
 }
 
-// === “Yordam?” — to‘g‘ri javob(lar) harflar bilan ===
-window.getAnsver = function () {
+let ansverId1=document.querySelector("#answerId")
+function getAnsver(){
   fine++;
-  const qNum = parseInt(number_question.textContent, 10);
-  const correctIdx = computeCorrectIndexesForRenderedQuestion(qNum);  // [0,3] kabi
-  const letters = correctIdx.map(i => String.fromCharCode(65 + i)).join(", ");
-  ansverId1.textContent = `To‘g‘ri javob(lar): ${letters}`;
-};
-
-// === Yakunlash va baholash ===
-function arraysEqualAsSets(a, b) {
-  if (!Array.isArray(a) || !Array.isArray(b)) return false;
-  if (a.length !== b.length) return false;
-  const sb = new Set(b);
-  return a.every(x => sb.has(x));
+  q=number_question.innerHTML;
+  ansverId1.textContent=testdata[arrayTest[q - 1]].answer;
 }
-
-window.endTest = function () {
-  let c = 0, inc = 0, usc = 0;
-
-  for (let i = 0; i < arrayTest.length; i++) {
-    const selected = user_answer[i];               // [renderIndex,...] yoki null
-    if (!selected || selected.length === 0) {
-      usc++;
-      continue;
-    }
-    const correct = computeCorrectIndexesForRenderedQuestion(i + 1); // [renderIndex,...]
-    if (arraysEqualAsSets(selected.slice().sort(), correct.slice().sort())) c++;
-    else inc++;
+function endTest() {
+  var c = 0, inc = 0, usc = 0;
+  
+  for (var i = 0; i < arrayTest.length; i++) {
+      if (user_answer[i] != null) {
+          if (user_answer[i] == testdata[arrayTest[i]].answer) {
+              c++;
+          } else {
+              inc++;
+          }
+      } else {
+          usc++;
+      }
   }
 
-  // Ekranga chiqarish
-  cansEl.textContent     = `To'g'ri: ${c}`;
-  icansEl.textContent    = `Noto'g'ri: ${inc}`;
-  noselectEl.textContent = `Belgilanmagan: ${usc}`;
-  fineEl.textContent     = `Jarima: ${fine}`;
-  fullBallEl.textContent = `Umumiy ball: ${(c - fine) * 4}`;
+  // Natijalarni ekranga chiqarish
+  document.querySelector("#cans").textContent = `To'g'ri: ${c}`;
+  document.querySelector("#icans").textContent = `Noto'g'ri: ${inc}`;
+  document.querySelector("#fine").textContent = `Jarima: ${fine}`;
+  document.querySelector("#fullball").textContent = `Umumiy ball: ${(c - fine)*4}`;
+  document.querySelector("#noselect").textContent = `Belgilanmagan: ${usc}`;
 
-  // Xabar yuborish (sizdagi kabi)
+  // Vaqtni olish
   const now = new Date();
-  const timestamp = now.toLocaleString("uz-UZ");
+  const timestamp = now.toLocaleString("uz-UZ"); // O'zbek formati
   const email1 = localStorage.getItem("userEmail");
 
+  // Telegram bot ma'lumotlari
   const botToken = "7783555807:AAFoAwnJn2yQ5BzorHJy5xMcs5ofCssftqY"; // ← o'zingizniki
-  const chatId  = "361016648";                                       // ← o'zingizniki
+  const chatId  = "361016648";
 
-  const message =
-`🕒 Test tugallangan vaqt: ${timestamp}
+  // Xabar matni
+  const message = `
+🕒 Test tugallangan vaqt: ${timestamp}
 📧 Email address: ${email1}
 📊 *Test natijasi:*
 ✅ To'g'ri javoblar: ${c}
 ❌ Noto'g'ri javoblar: ${inc}
 ⚪ Belgilanmagan javoblar: ${usc}
-🏆 Umumiy ball: ${(c - fine) * 4}`;
+🏆 Umumiy ball: ${(c - fine)*4}`;
 
+  // Telegram API-ga so‘rov yuborish
   fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ chat_id: chatId, text: message })
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+          chat_id: chatId,
+          text: message
+      })
   })
-  .then(r => r.json())
-  .then(() => {
-    setTimeout(() => { window.location = "studentindex.html"; }, 20000);
+  .then(response => response.json())
+  .then(data => {
+      console.log("Xabar yuborildi:", data);
+      
+      // 1.5 soniya kutish va keyin sahifani o‘zgartirish
+      setTimeout(() => {
+          window.location = "studentindex.html";
+      }, 20000);
   })
-  .catch(err => console.error("Xatolik yuz berdi:", err));
-};
+  .catch(error => {
+      console.error("Xatolik yuz berdi:", error);
+  });
+}
