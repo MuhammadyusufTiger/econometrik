@@ -1,328 +1,248 @@
 const testdata = [
   {
-    question: "Ekonometrika fanining asosiy maqsadi nima?",
-    options: [
-      "Iqtisodiy jarayonlarni matematik modellashtirish",
-      "Moliyaviy hisobotlarni tekshirish", 
-      "Statistika nazariyalarini o‘rganish", 
-      "Buxgalteriya hisobini yuritish",
-    ],
-    answer: "Iqtisodiy jarayonlarni matematik modellashtirish"
+    question: "C++ dasturlash tilida chiqish operatori qaysi?",
+    options: ["cin", "printf", "cout", "input"],
+    answer: "cout",
   },
   {
-    question: "Iqtisodiy o‘zgaruvchilar orasidagi bog‘liqlikni aniqlash uchun qaysi usul qo‘llaniladi?",
-    options: [
-      "Deskriptiv statistika",
-      "Ehtimollar nazariyasi",
-      "Regressiya tahlili",
-      "Hisob-kitob amallari",
-    ],
-    answer: "Regressiya tahlili",
+    question: "C++ dasturida qaysi kutubxona cout uchun kerak?",
+    options: ["math.h", "stdio.h", "iostream", "stdlib.h"],
+    answer: "iostream",
   },
   {
-    question: "Ekonometrik modelning tarkibiy qismlaridan biri bu:",
-    options: [
-      "Differensial tenglama", 
-      "Statik analiz", 
-      "Tasodifiy xatolik", 
-      "Barcha javoblar to‘g‘ri"
-    ],
-    answer: "Tasodifiy xatolik",
+    question: "C++ dasturida asosiy bajariladigan funksiya nomi nima?",
+    options: ["start()", "main()", "run()", "execute()"],
+    answer: "main()",
   },
   {
-    question:
-      "Agar ikkita o‘zgaruvchi orasida kuchli chiziqli bog‘liqlik mavjud bo‘lsa, bu hodisa qanday ataladi?",
-    options: [
-      "Geteroskedastiklik", 
-      "Avtokorrelyatsiya", 
-      "Multikollinearlik", 
-      "Endogenlik"
-    ],
-    answer: "Multikollinearlik",
+    question: "Qaysi belgi endl bilan bir xil vazifani bajaradi?",
+    options: ["\\t", "\\\\", "\\n", "\\a"],
+    answer: "\\n",
   },
   {
-    question:
-      "Regressiya tahlilida R² statistikasi nima uchun ishlatiladi?",
-    options: [
-      "O‘zgaruvchilar orasidagi bog‘liqlikni o‘lchash uchun",
-      "Modeldagi tasodifiy xatolikni hisoblash uchun",
-      "Heteroskedastiklikni tekshirish uchun",
-      "Endogenlikni bartaraf etish uchun",
-    ],
-    answer: "O‘zgaruvchilar orasidagi bog‘liqlikni o‘lchash uchun",
+    question: "C++ da o‘zgaruvchini e’lon qilishda noto‘g‘ri yozilgan satr qaysi?",
+    options: ["int x;", "float 3num;", "char a = 'A';", "double d = 2.5;"],
+    answer: "float 3num;",
   },
   {
-    question:
-      "OLS (Eng kichik kvadratlar usuli) qanday asosiy shartlarga tayanadi?",
-    options: [
-      "Tasodifiy xatoliklarning normal taqsimlanishi",
-      "Tasodifiy xatoliklarning o‘rtacha qiymati nolga teng bo‘lishi",
-      "Tasodifiy xatoliklarning o‘zaro bog‘liq emasligi",
-      "Barcha javoblar to‘g‘ri",
-    ],
-    answer: "Barcha javoblar to‘g‘ri",
+    question: "Quyidagilardan qaysi biri mantiqiy (bool) tipga misol?",
+    options: ['"true"', "1", "false", "'0'"],
+    answer: "false",
   },
   {
-    question:
-      "Geteroskedastiklik nimani anglatadi?",
-    options: [
-      "Model parametrlarining noto‘g‘ri baholanganligini",
-      "Xatolik dispersiyasining o‘zgaruvchilar qiymatiga bog‘liq ekanligini",
-      "Mustaqil o‘zgaruvchilar orasidagi kuchli bog‘liqlikni",
-      "O‘zgaruvchilar orasidagi o‘zaro ta’sirni",
-    ],
-    answer: "Xatolik dispersiyasining o‘zgaruvchilar qiymatiga bog‘liq ekanligini",
+    question: "C++ da qanday qilib foydalanuvchidan qiymat olinadi?",
+    options: ["output >> x;", "scanf(x);", "cin >> x;", "read(x);"],
+    answer: "cin >> x;",
   },
   {
-    question:
-      "Eng kichik kvadratlar usulida qaysi shart bajarilsa, baholovchilar samarali bo‘ladi?",
-    options: [
-      "Multikollinearlik yo‘qli",
-      "Gauss-Markov teoremasi bajarilishi",
-      "Iqtisodiy interpretatsiya mavjudligi",
-      "Modelning yuqori darajada mosligi",
-    ],
-    answer: "Gauss-Markov teoremasi bajarilishi",
+    question: "C++ dasturida qaysi amal qo‘shish uchun ishlatiladi?",
+    options: ["+", "&", "*", "%"],
+    answer: "+",
   },
   {
-    question:
-      "Autokorrelyatsiya qaysi statistik test bilan tekshiriladi?",
-    options: [
-      "White testi",
-      "Durbin-Watson testi",
-      "Fisher testi",
-      "Student testi",
-    ],
-    answer: "Durbin-Watson testi",
+    question: "Quyidagilardan qaysi biri inkrement operator?",
+    options: ["--", "++", "+=", "=="],
+    answer: "++",
   },
   {
-    question: "Agar modelda mustaqil o‘zgaruvchilar kuchli bog‘liq bo‘lsa, nima sodir bo‘ladi?",
-    options: [
-      "Regressiya natijalari ishonchsiz bo‘ladi",
-      "Tasodifiy xatolar kamayadi",
-      "Model aniq va ishonchli bo‘ladi",
-      "OLS baholovchilari samarali ishlaydi",
-    ],
-    answer: "Regressiya natijalari ishonchsiz bo‘ladi",
+    question: "Agar int x = 5 / 2; bo‘lsa, x ning qiymati nechaga teng?",
+    options: ["2.5", "3", "2", "0"],
+    answer: "2",
   },
   {
-    question:
-      "Heteroskedastiklik mavjudligini tekshirish uchun qaysi test ishlatiladi?",
-    options: [
-      "Breusch-Pagan testi",
-      "Kolmogorov-Smirnov testi",
-      "Jarque-Bera testi",
-      "Durbin-Watson testi",
-    ],
-    answer: "Breusch-Pagan testi",
+    question: "C++ da qaysi biri if operatorining sintaksisidir?",
+    options: ["if x > y then", "if (x > y) { }", "if x > y { }", "if: x > y {}"],
+    answer: "if (x > y) { }",
   },
   {
-    question:
-      "Endogenlik muammosi nimani anglatadi?",
-    options: [
-      "Mustaqil o‘zgaruvchilar tasodifiy xatolik bilan bog‘liq bo‘lishi",
-      "Regressiya modelida noma’lum o‘zgaruvchining mavjudligi",
-      "Regressiya modelida noma’lum o‘zgaruvchining mavjudligi",
-      " Model parametrlarining noto‘g‘ri baholanishi",
-    ],
-    answer: "Mustaqil o‘zgaruvchilar tasodifiy xatolik bilan bog‘liq bo‘lishi",
+    question: "Qaysi operator tanlash (switch) operatoriga tegishli?",
+    options: ["for", "if", "case", "while"],
+    answer: "case",
   },
   {
-    question:
-      "Ekonometrik modelda dummy (soxta) o‘zgaruvchilar nima uchun ishlatiladi?",
-    options: [
-      "Nominal yoki kategorik o‘zgaruvchilarni ifodalash uchun",
-      "Tasodifiy xatolarni kamaytirish uchun",
-      "Modelda heteroskedastiklikni oldini olish uchun",
-      "Modelning mosligini oshirish uchun",
-    ],
-    answer: "Nominal yoki kategorik o‘zgaruvchilarni ifodalash uchun",
+    question: "C++ da nechta asosiy takrorlash operatori mavjud?",
+    options: ["1", "2", "3", "4"],
+    answer: "3",
   },
   {
-    question:
-      "Eng kichik kvadratlar usulida qanday shart bajarilmasa, model noto‘g‘ri baholangan bo‘ladi?",
+    question: "while sikli qachongacha bajariladi?",
     options: [
-      "Multikollinearlik mavjud bo‘lsa",
-      "Mustaqil o‘zgaruvchilar normal taqsimlanmasa",
-      "Endogenlik mavjud bo‘lsa",
-      "Barcha javoblar to‘g‘ri",
+      "Faqat 1 marta",
+      "Shart false bo‘lguncha",
+      "Cheksiz",
+      "Har doim bajariladi",
     ],
-    answer: "Barcha javoblar to‘g‘ri",
+    answer: "Shart false bo‘lguncha",
   },
   {
-    question:
-      "Ekonometrik modellarni tahlil qilishda statistik ahamiyatlilikni qanday tekshirish mumkin?",
+    question: "break operatori nima qiladi?",
     options: [
-      "P-qiymati va t-statistikasi orqali",
-      "R² koeffitsienti orqali",
-      "Log-likelihood funksiyasi orqali",
-      "Autokorrelyatsiyani tekshirish orqali",
+      "Dastur tugaydi",
+      "Xatolik chiqaradi",
+      "Takrorlashni to‘xtatadi",
+      "Qiymatni chiqaradi",
     ],
-    answer: "P-qiymati va t-statistikasi orqali",
+    answer: "Takrorlashni to‘xtatadi",
   },
   {
-    question:
-      "Regressiya modelidagi tasodifiy xatolik nimani anglatadi?",
-    options: [
-      "O‘zgaruvchilar orasidagi bog‘liqlik darajasini",
-      "Modelda tushuntirilmagan omillarni",
-      "Mustaqil o‘zgaruvchilarning ta’sirini",
-      "Modelning umumiy aniqligini",
-    ],
-    answer: "Modelda tushuntirilmagan omillarni",
+    question: "Quyidagi for operatori nechta marta ishlaydi: for (int i = 0; i < 3; i++) cout << i;",
+    options: ["0", "2", "3", "4"],
+    answer: "3",
   },
   {
-    question:
-      "Agar t-test natijasida mustaqil o‘zgaruvchining t-statistikasi juda past bo‘lsa, bu nimani anglatadi?",
-    options: [
-      "Mustaqil o‘zgaruvchi modelda statistik ahamiyatga ega emas",
-      "Modelda autokorrelyatsiya mavjud",
-      "Modeldagi tasodifiy xatolar noto‘g‘ri baholangan",
-      "R² darajasi yuqori bo‘lishi kerak",
-    ],
-    answer: "Mustaqil o‘zgaruvchi modelda statistik ahamiyatga ega emas",
+    question: "int x = 10; x += 5; so‘ngida x ning qiymati?",
+    options: ["10", "15", "5", "0"],
+    answer: "15",
   },
   {
-    question:
-      "Agar modelda ortiqcha o‘zgaruvchilar mavjud bo‘lsa, bu qanday muammoga olib keladi?",
-    options: [
-      "Multikollinearlik",
-      "Autokorrelyatsiya",
-      "Overfitting (ortiqcha moslashuv)",
-      "Heteroskedastiklik",
-    ],
-    answer: "Overfitting (ortiqcha moslashuv)",
+    question: "!= operatorining ma’nosi nima?",
+    options: ["Katta yoki teng", "Teng", "Teng emas", "Kichikroq"],
+    answer: "Teng emas",
   },
   {
-    question:
-      "Breusch-Godfrey testi nima uchun ishlatiladi?",
+    question: "#include <iostream> satri qanday maqsadda ishlatiladi?",
     options: [
-      "Heteroskedastiklikni tekshirish uchun",
-      "Endogenlikni aniqlash uchun",
-      "Autokorrelyatsiyani tekshirish uchun",
-      "Multikollinearlikni baholash uchun",
+      "Konsolni tozalash",
+      "Kutubxona ulash",
+      "O‘zgaruvchi e’lon qilish",
+      "Ekranga chiqarish",
     ],
-    answer: "Autokorrelyatsiyani tekshirish uchun",
+    answer: "Kutubxona ulash",
   },
   {
-    question:
-      "Ko‘p o‘zgaruvchili regressiya modelida koeffitsiyentlarni baholash uchun qaysi usul qo‘llaniladi?",
+    question: "C++ dasturida return 0; nimani anglatadi?",
     options: [
-      "Logistik regressiya",
-      "Eng kichik kvadratlar usuli (OLS)",
-      "Diskriminant tahlil",
-      "Panel ma’lumotlar tahlili",
+      "0 ni chiqaradi",
+      "Dasturni to‘xtatadi",
+      "Xatolikni bildiradi",
+      "Dastur muvaffaqiyatli tugadi degani",
     ],
-    answer: "Eng kichik kvadratlar usuli (OLS)",
+    answer: "Dastur muvaffaqiyatli tugadi degani",
   },
   {
-    question:
-      "Agar ekonometrik modelda mustaqil o‘zgaruvchi ortiqcha bo‘lsa, qanday natija yuzaga keladi?",
-    options: [
-      "Modelning R² qiymati pasayadi",
-      "Model parametrlarining ishonchliligi oshadi",
-      "Modelda noto‘g‘ri bog‘liqlik paydo bo‘lishi mumkin",
-      "Modeldagi tasodifiy xatolar kamayadi",
-    ],
-    answer: "Modelda noto‘g‘ri bog‘liqlik paydo bo‘lishi mumkin",
+    question: "C++ dasturlash tilida izoh (kommentariya) qanday yoziladi?",
+    options: ["# izoh", "// izoh", "/* izoh */", "% izoh"],
+    answer: "// izoh",
   },
   {
-    question:
-      "Panel ma’lumotlar modeli nimani o‘z ichiga oladi?",
-    options: [
-      "Faqat vaqt bo‘yicha o‘zgaruvchilarni",
-      "Faqat kesim bo‘yicha o‘zgaruvchilarni",
-      "Vaqt va kesim bo‘yicha o‘zgaruvchilarni",
-      "Faqat tasodifiy xatolarni",
-    ],
-    answer: "Vaqt va kesim bo‘yicha o‘zgaruvchilarni",
+    question: "Qaysi o‘zgaruvchi turi butun sonlarni saqlash uchun ishlatiladi?",
+    options: ["float", "int", "char", "bool"],
+    answer: "int",
   },
   {
-    question:
-      "Ekonometrik modeldagi R² ko‘rsatkichining ma’nosi nima?",
-    options: [
-      "Model parametrlarining statistik ahamiyatlilik darajasi",
-      "Modelning aniqlilik darajasi",
-      "O‘zgaruvchilar orasidagi bog‘liqlik darajasi",
-      "Modelning mustahkamligini",
-    ],
-    answer: "Modelning aniqlilik darajasi",
+    question: "Qaysi o‘zgaruvchi turi belgilarni saqlaydi?",
+    options: ["char", "string", "int", "bool"],
+    answer: "char",
   },
   {
-    question:
-      "F-statistika nima uchun ishlatiladi?",
-    options: [
-      "Regressiya modelining umumiy statistik ahamiyatliligini tekshirish uchun",
-      "Modeldagi har bir o‘zgaruvchining ahamiyatliligini tekshirish uchun",
-      "Xatolik dispersiyasini tekshirish uchun",
-      "Autokorrelyatsiyani tekshirish uchun",
-    ],
-    answer: "Regressiya modelining umumiy statistik ahamiyatliligini tekshirish uchun",
+    question: "C++ dasturida satr (matn) saqlash uchun qaysi tip ishlatiladi?",
+    options: ["string", "char", "bool", "double"],
+    answer: "string",
   },
   {
-    question:
-      "Eng yaxshi ekonometrik modelni tanlashda qaysi kriteriy qo‘llaniladi?",
-    options: [
-      "Adjusted R² (Tuzatilgan R²)",
-      "P-qiymati",
-      "Akaike informatsiya kriteriyasi (AIC)",
-      "Barcha javoblar to‘g‘ri",
-    ],
-    answer: "Barcha javoblar to‘g‘ri",
+    question: "Quyidagilardan qaysi biri C++ da o‘zgaruvchi nomlash qoidalariga zid?",
+    options: ["my_var", "2son", "userName", "_x"],
+    answer: "2son",
   },
   {
-    question:
-      "Heteroskedastiklik mavjud bo‘lganda, qaysi natija yuzaga keladi?",
-    options: [
-      "OLS baholovchilari samarador bo‘lmaydi",
-      "Mustaqil o‘zgaruvchilar ahamiyatsiz bo‘ladi",
-      "Endogenlik muammosi yuzaga keladi",
-      "Regressiya koeffitsiyentlari o‘zgaradi",
-    ],
-    answer: "OLS baholovchilari samarador bo‘lmaydi",
+    question: "C++ da arifmetik amallardan bo‘linmani bildiruvchi belgi qaysi?",
+    options: ["/", "*", "-", "%"],
+    answer: "/",
   },
   {
-    question:
-      "Ridge regression nima uchun qo‘llaniladi?",
-    options: [
-      "Multikollinearlik muammosini bartaraf etish uchun",
-      "Heteroskedastiklikni kamaytirish uchun",
-      "Tasodifiy xatolarni aniqlash uchun",
-      "Endogenlikni oldini olish uchun",
-    ],
-    answer: "Multikollinearlik muammosini bartaraf etish uchun",
+    question: "C++ da qoldiqni hisoblash operatori qaysi?",
+    options: ["//", ":", "%", "\\"],
+    answer: "%",
   },
   {
-    question:
-      "Agar ekonometrik modelda tasodifiy xatoliklarning dispersiyasi vaqt o‘tishi bilan o‘zgarsa, bu qanday muammo?",
+    question: "C++ da const kalit so‘zi nima uchun ishlatiladi?",
     options: [
-      "Multikollinearlik",
-      "Autokorrelyatsiya",
-      "Heteroskedastiklik",
-      "Endogenlik",
+      "Doimiy qiymatni belgilash uchun",
+      "Takrorlash uchun",
+      "Shart tekshirish uchun",
+      "Kutubxona ulash uchun"
     ],
-    answer: "Heteroskedastiklik",
+    answer: "Doimiy qiymatni belgilash uchun",
   },
   {
-    question:
-      "Instrumental o‘zgaruvchilar usuli qachon ishlatiladi?",
+    question: "C++ dasturida qanday holatda 'else' bloki bajariladi?",
     options: [
-      "Mustaqil o‘zgaruvchilar va xatoliklar bog‘liq bo‘lganda",
-      "Modelda autokorrelyatsiya mavjud bo‘lganda",
-      "OLS baholovchilari samarador bo‘lmaganda",
-      "R² juda past bo‘lganda",
+      "Shart bajarilganda",
+      "Shart bajarilmaganda",
+      "Har doim",
+      "Foydalanuvchi xohlaganda"
     ],
-    answer: "Mustaqil o‘zgaruvchilar va xatoliklar bog‘liq bo‘lganda",
+    answer: "Shart bajarilmaganda",
   },
   {
-    question:
-      "Log-likelihood funksiyasi nimani baholashda ishlatiladi?",
+    question: "Qaysi takrorlash operatori kamida bir marta bajariladi?",
+    options: ["while", "do-while", "for", "switch"],
+    answer: "do-while",
+  },
+  {
+    question: "C++ da `#define PI 3.14` nimani anglatadi?",
     options: [
-      "Model parametrlarining ishonchliligini",
-      "Modelning umumiy aniqligini",
-      "Modelning ehtimollik funktsiyasini",
-      "Mustaqil o‘zgaruvchilar ta’sirini",
+      "O‘zgaruvchini e'lon qiladi",
+      "Doimiy qiymat yaratadi",
+      "Funktsiyani aniqlaydi",
+      "Takrorlash operatorini bildiradi"
     ],
-    answer: "Modelning ehtimollik funktsiyasini",
+    answer: "Doimiy qiymat yaratadi",
+  },
+  {
+    question: "Qaysi biri C++ da o‘zgaruvchini qiymati bilan e’lon qilishga misol?",
+    options: ["int x = 5;", "x int = 5;", "int = 5 x;", "5 = int x;"],
+    answer: "int x = 5;",
+  },
+  {
+    question: "Qaysi operator tenglikni tekshiradi?",
+    options: ["=", "==", "!=", "<="],
+    answer: "==",
+  },
+  {
+    question: "C++ da `&&` operatori nimani bildiradi?",
+    options: ["Yoki", "Va", "Teng", "Teskari"],
+    answer: "Va",
+  },
+  {
+    question: "C++ dasturida `||` operatori nimani anglatadi?",
+    options: ["Teskari", "Yoki", "Teng emas", "Qo‘shish"],
+    answer: "Yoki",
+  },
+  {
+    question: "C++ dasturida massiv qanday e’lon qilinadi?",
+    options: ["int x[] = {1,2,3};", "array x = (1,2,3);", "x = {1,2,3};", "int[] x = 1,2,3;"],
+    answer: "int x[] = {1,2,3};",
+  },
+  {
+    question: "Quyidagilardan qaysi biri massivning 3-elementiga murojaat qiladi?",
+    options: ["x(3)", "x[2]", "x{3}", "x.3"],
+    answer: "x[2]",
+  },
+  {
+    question: "C++ da funksiyani e’lon qilish to‘g‘ri ko‘rinishi?",
+    options: [
+      "function void myFunc()",
+      "void myFunc() {}",
+      "func myFunc[]",
+      "myFunc() = void;"
+    ],
+    answer: "void myFunc() {}",
+  },
+  {
+    question: "Qaysi biri `continue` operatorining vazifasi?",
+    options: [
+      "Siklni to‘xtatish",
+      "Dasturdan chiqish",
+      "Joriy iteratsiyani o‘tkazib yuborish",
+      "Fayl ochish"
+    ],
+    answer: "Joriy iteratsiyani o‘tkazib yuborish",
+  },
+  {
+    question: "C++ dasturida fayl bilan ishlash uchun qaysi kutubxona kerak?",
+    options: ["<iostream>", "<fstream>", "<stdio.h>", "<string>"],
+    answer: "<fstream>",
   }
 ];
+

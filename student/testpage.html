@@ -106,6 +106,8 @@
                         <div class="dropdown-menu bg-transparent border-0">
                             <a href="books.html" class="dropdown-item">Kitoblar</a>
                             <a href="videos.html" class="dropdown-item">Video darslar</a>
+                            <a href="sillabus.html" class="dropdown-item">Fan dasturlar va Sillabuslar</a>
+
                         </div>
                     </div>
                     <!-- <a href="report.html" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Hisobot</a> -->
@@ -215,7 +217,24 @@
                         <h2 class="question-num"><i id="question-num"></i>-savol</h2>
                         <p class="question-text" id="q_text"></p>
                     </div>
-                    <div class="answer" id="options"></div>
+                    <div class="answer">
+                        <label class="answer-item">
+                            <input type="radio" name="option1" onchange="toggleParentClass(this)">
+                            <span id="op1"></span>
+                        </label>
+                        <label class="answer-item">
+                            <input type="radio" name="option2" onchange="toggleParentClass(this)">
+                            <span id="op2"></span>
+                        </label>
+                        <label class="answer-item">
+                            <input type="radio" name="option3" onchange="toggleParentClass(this)">
+                            <span id="op3"></span>
+                        </label>
+                        <label class="answer-item">
+                            <input type="radio" name="option4" onchange="toggleParentClass(this)">
+                            <span id="op4"></span>
+                        </label>
+                    </div>
                     <div class="action">
                         <button onclick="pClick()" class="btn" id="pbtn">Oldingi</button>
                         <button onclick="nClick()" class="btn" id="nbtn">Keyingi</button>
